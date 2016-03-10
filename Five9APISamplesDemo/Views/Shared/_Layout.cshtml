@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Five9 API Demos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href='@Url.Action("Index","Home")'>
+                    <img class="img left" src="~/Five9Logos/five9-logo_38x38.jpg">
+                </a>
+
+
+                @*<img class="img left" src="~/Five9Logos/five9-logo_38x38.jpg">
+                @Html.ActionLink("Five9 API Demos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                @if (Request.IsAuthenticated)
+                {
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("Setup", "Index", "Five9APIUser")</li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Configuration<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("DNIS Assignments","DnisAssignments","ConfigurationAPI")</li>
+                            <li>@Html.ActionLink("Agent Skills",  "AgentSkills", "ConfigurationAPI")</li>
+                            <li>@Html.ActionLink("Customer Call Back",  "CustomerCallBack", "ConfigurationAPI")</li>
+                           
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Statistics<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Start New Session", "StartStatisticsSession", "StatisticsAPI")</li>
+                            <li>@Html.ActionLink("ACD Statistics",  "ACDStatistics", "StatisticsAPI")</li>
+                            <li>@Html.ActionLink("Agent Availability", "AgentAvailability", "StatisticsAPI")</li>
+                            <li>@Html.ActionLink("Broadcast Message",  "BroadcastMessage", "StatisticsAPI")</li>
+
+                        </ul>
+                    </li>
+
+                    @*<li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Web2Campaign API<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Customer Call Back", "CustomerCallBack", "Web2CampaignAPI")</li>
+                          
+                        </ul>
+                    </li>*@
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">CTI WS<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Call Event Monitor", "CallEventMonitor", "CTIWSAPI")</li>
+                            <li>@Html.ActionLink("Update Call Variables", "UpdateCAV", "CTIWSAPI")</li>
+                            <li>@Html.ActionLink("Call Control", "CallControl", "CTIWSAPI")</li>
+                            
+                            
+
+                        </ul>
+                    </li>
+
+                }
+        </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Five9 API Demos</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

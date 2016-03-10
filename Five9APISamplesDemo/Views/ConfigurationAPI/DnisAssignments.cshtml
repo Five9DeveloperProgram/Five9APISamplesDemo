@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Five9APISamplesDemo.Models.DNISAssignment>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Domain DNIS Assignments";
+}
+
+<h2>Domain DNIS Assignments</h2>
+
+<div>
+    @Html.ActionLink("Download DNIS Assignments", "GetCSVDNISList", "ConfigurationAPI", null, null)
+</div>
+@Html.Grid(Model).Columns(columns =>
+           {
+               columns.Add(d => d.DNIS).Titled("DNIS").SetWidth(110).Sortable(true);
+               columns.Add(d => d.Campaign).Sortable(true);
+           }).WithPaging(20)
+
+
+
+
+

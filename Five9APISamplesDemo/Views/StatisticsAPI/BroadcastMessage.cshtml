@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "BroadcastMessage";
+}
+
+<h2>BroadcastMessage</h2>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Five9/broadcastmsg.js")
+    
+}
+
+
+<div class="col-md-6">
+    <div>
+        <form role="form">
+            <div class="form-group">
+                <label for="broadcastVal" class="control-label">Message To Send</label>
+                <input type="text" class="form-control" id="broadcastVal" placeholder="Enter Message">
+            </div>
+
+
+            <button type="button" id="sendBroadcast" class="btn btn-default">Send</button>
+
+        </form>
+    </div>
+    <div class="col-md-6" id="ResponseDiv">   </div>
+</div>

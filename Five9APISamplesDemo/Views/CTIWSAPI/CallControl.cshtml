@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Call Control";
+}
+
+<h2>CallEventMonitor</h2>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Five9/xml2json.js")
+    @Scripts.Render("~/Scripts/Five9/Flags.js")
+    @Scripts.Render("~/Scripts/Five9/Five9CTI-1.0.0.js")
+    @Scripts.Render("~/Scripts/Five9/ctiwspage.js")
+}
+
+
+<div class="container">
+    <div class="col-md-6">
+        <img class="img center-block" src="~/Five9Logos/five9-logo_38x38.jpg">
+
+
+        <form role="form">
+            <div class="form-group">
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="stationid" class="control-label">Station</label>
+                <input type="text" class="form-control" id="stationid" placeholder="Enter station id">
+            </div>
+            <div class="form-group">
+                <label for="stationtype" class="control-label">Station type</label>
+                <div class="radio-inline" id="stationtype">
+                    <label class="radio-inline">
+                        <input type="radio" name="stationtype" value="SOFTPHONE" checked="checked"> Softphone
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="stationtype" value="PSTN"> PSTN
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="stationtype" value="VoIP"> Gateway
+                    </label>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+            <button type="button" id="signin" class="btn btn-default">Sign In</button>
+            <button type="button" id="signout" class="btn btn-default">Sign Out</button>
+        </form>
+
+        <form role="form">
+            <div class="form-group">
+                <label for="callVal" class="control-label">Phone Number</label>
+                <input type="text" class="form-control" id="callVal" placeholder="Enter phone to call">
+            </div>
+
+            <button type="button" id="makecall" class="btn btn-default">Dial</button>
+            <button type="button" id="hangUp" class="btn btn-default">End Call</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <form role="form">
+                <div class="form-group">
+                    <label for="CAVName" class="control-label">CAV Field Name to Update</label>
+                    <input type="text" class="form-control" id="CAVName" placeholder="Enter CAV Field Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="CAVValue" class="control-label">CAV Value</label>
+                    <input type="text" class="form-control" id="CAVValue" placeholder="Enter CAV Value">
+                </div>
+
+                <button type="button" id="updatecav" class="btn btn-default">Update</button>
+
+            </form>
+        </div>
+        <div class="col-md-6" id="callEventDiv">   </div>
+    </div>
+</div>

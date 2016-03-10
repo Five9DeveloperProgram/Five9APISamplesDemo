@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Five9APISamplesDemo.Models.Five9APIUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Model.Count() == 0) { 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminPW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperPW)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminUsername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminPW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperUsername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperPW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

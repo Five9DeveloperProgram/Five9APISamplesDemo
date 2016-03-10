@@ -1,0 +1,64 @@
+﻿@model Five9APISamplesDemo.Models.Five9APIUser
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Five9APIUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminUsername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperUsername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperPW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperPW)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SessionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SessionID)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,87 @@
+﻿@model Five9APISamplesDemo.com.five9.configapi.listImportResult
+
+@{
+    ViewBag.Title = "Call Back Submit Result";
+}
+
+<h2>Call Back Submit Result</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Failure Message:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.failureMessage)
+        </dd>
+
+        <dt>
+            Upload Duplicates:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uploadDuplicatesCount)
+        </dd>
+
+        <dt>
+            Upload Errors:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uploadErrorsCount)
+        </dd>
+
+        <dt>
+            Call NOW Queued:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.callNowQueued)
+        </dd>
+
+        <dt>
+           Contacts Inserted:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crmRecordsInserted)
+        </dd>
+
+        <dt>
+            Contacts Updated:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crmRecordsUpdated)
+        </dd>
+
+        <dt>
+            List Name:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listName)
+        </dd>
+
+        <dt>
+            List Records Deleted:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listRecordsDeleted)
+        </dd>
+
+        <dt>
+            List Records Inserted:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.listRecordsInserted)
+        </dd>
+
+    </dl>
+</div>
+

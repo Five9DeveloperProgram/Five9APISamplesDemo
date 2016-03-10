@@ -1,0 +1,35 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Basic Web Grid";
+}
+@*<h2>Basic Web Grid</h2>
+    <div>
+        @{
+            var grid = new WebGrid(Model, defaultSort: "Name");
+        }
+        @grid.GetHtml()
+    </div>*@
+
+
+<table border="1">
+    <thead>
+        <tr>
+
+            @foreach (System.Data.DataColumn col in Model.Columns)
+            {
+                <th>@col.Caption </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (System.Data.DataRow row in Model.Rows)
+        {
+            <tr>
+                @foreach (var cell in row.ItemArray)
+                {
+                    <td>@cell.ToString()</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

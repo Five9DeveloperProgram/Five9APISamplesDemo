@@ -1,0 +1,2909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.supervisor.ws.five9.com/" xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" name="WsSupervisorService" targetNamespace="http://service.supervisor.ws.five9.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://service.supervisor.ws.five9.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AccessDisallowedFault" type="tns:AccessDisallowedException" />
+      <xs:element name="AgentMonitorFault" type="tns:AgentMonitorException" />
+      <xs:element name="AgentNotFoundFault" type="tns:AgentNotFoundException" />
+      <xs:element name="CampaignNotFoundFault" type="tns:CampaignNotFoundException" />
+      <xs:element name="CampaignStateUpdateFault" type="tns:CampaignStateUpdateException" />
+      <xs:element name="ChatFault" type="tns:WSChatException" />
+      <xs:element name="ConcurrentModificationFault" type="tns:ConcurrentModificationException" />
+      <xs:element name="ConfigurationChangedFault" type="tns:ConfigurationChangedException" />
+      <xs:element name="DispositionNotFoundFault" type="tns:DispositionNotFoundException" />
+      <xs:element name="IncorrectArgumentFault" type="tns:IncorrectArgumentException" />
+      <xs:element name="InvalidAccountFault" type="tns:InvalidAccountException" />
+      <xs:element name="MissedArgumentFault" type="tns:MissedArgumentException" />
+      <xs:element name="OperationsLimitExceededFault" type="tns:OperationsLimitExceededException" />
+      <xs:element name="ReconnectStationFault" type="tns:ReconnectStationException" />
+      <xs:element name="ServerFault" type="tns:ServerException" />
+      <xs:element name="ServiceUnavailableFault" type="tns:ServiceUnavailableException" />
+      <xs:element name="SessionClosedFault" type="tns:SessionClosedException" />
+      <xs:element name="SessionNotInitializedFault" type="tns:SessionNotInitializedException" />
+      <xs:element name="StationNotFoundFault" type="tns:StationNotFoundException" />
+      <xs:element name="StationNotLoggedInFault" type="tns:StationNotLoggedInException" />
+      <xs:element name="StatisticsNotRequestedFault" type="tns:StatisticsNotRequestedException" />
+      <xs:element name="UnknownColumnFault" type="tns:UnknownColumnException" />
+      <xs:element name="UnknownTimestampFault" type="tns:UnknownTimestampException" />
+      <xs:element name="UserAlreadyLoggedInFault" type="tns:UserAlreadyLoggedInException" />
+      <xs:element name="UserLimitReachedFault" type="tns:UserLimitReachedException" />
+      <xs:element name="WrongCampaignStateFault" type="tns:WrongCampaignStateException" />
+      <xs:element name="WrongCampaignTypeFault" type="tns:WrongCampaignTypeException" />
+      <xs:element name="acceptChatInvite" type="tns:acceptChatInvite" />
+      <xs:element name="acceptChatInviteResponse" type="tns:acceptChatInviteResponse" />
+      <xs:element name="closeChatSession" type="tns:closeChatSession" />
+      <xs:element name="closeChatSessionResponse" type="tns:closeChatSessionResponse" />
+      <xs:element name="closeSession" type="tns:closeSession" />
+      <xs:element name="closeSessionResponse" type="tns:closeSessionResponse" />
+      <xs:element name="createChatSession" type="tns:createChatSession" />
+      <xs:element name="createChatSessionResponse" type="tns:createChatSessionResponse" />
+      <xs:element name="forceStopCampaign" type="tns:forceStopCampaign" />
+      <xs:element name="forceStopCampaignResponse" type="tns:forceStopCampaignResponse" />
+      <xs:element name="getCallCountersState" type="tns:getCallCountersState" />
+      <xs:element name="getCallCountersStateResponse" type="tns:getCallCountersStateResponse" />
+      <xs:element name="getColumnNames" type="tns:getColumnNames" />
+      <xs:element name="getColumnNamesResponse" type="tns:getColumnNamesResponse" />
+      <xs:element name="getDispositionsNames" type="tns:getDispositionsNames" />
+      <xs:element name="getDispositionsNamesResponse" type="tns:getDispositionsNamesResponse" />
+      <xs:element name="getLoggedInUsers" type="tns:getLoggedInUsers" />
+      <xs:element name="getLoggedInUsersResponse" type="tns:getLoggedInUsersResponse" />
+      <xs:element name="getMonitoringSupervisors" type="tns:getMonitoringSupervisors" />
+      <xs:element name="getMonitoringSupervisorsResponse" type="tns:getMonitoringSupervisorsResponse" />
+      <xs:element name="getMyGroupIds" type="tns:getMyGroupIds" />
+      <xs:element name="getMyGroupIdsResponse" type="tns:getMyGroupIdsResponse" />
+      <xs:element name="getMyPermissions" type="tns:getMyPermissions" />
+      <xs:element name="getMyPermissionsResponse" type="tns:getMyPermissionsResponse" />
+      <xs:element name="getMySkillsIds" type="tns:getMySkillsIds" />
+      <xs:element name="getMySkillsIdsResponse" type="tns:getMySkillsIdsResponse" />
+      <xs:element name="getSessionParameters" type="tns:getSessionParameters" />
+      <xs:element name="getSessionParametersResponse" type="tns:getSessionParametersResponse" />
+      <xs:element name="getStatistics" type="tns:getStatistics" />
+      <xs:element name="getStatisticsResponse" type="tns:getStatisticsResponse" />
+      <xs:element name="getStatisticsUpdate" type="tns:getStatisticsUpdate" />
+      <xs:element name="getStatisticsUpdateResponse" type="tns:getStatisticsUpdateResponse" />
+      <xs:element name="getUserLimits" type="tns:getUserLimits" />
+      <xs:element name="getUserLimitsResponse" type="tns:getUserLimitsResponse" />
+      <xs:element name="loginStation" type="tns:loginStation" />
+      <xs:element name="loginStationResponse" type="tns:loginStationResponse" />
+      <xs:element name="receiveMessages" type="tns:receiveMessages" />
+      <xs:element name="receiveMessagesResponse" type="tns:receiveMessagesResponse" />
+      <xs:element name="reconnectStation" type="tns:reconnectStation" />
+      <xs:element name="reconnectStationResponse" type="tns:reconnectStationResponse" />
+      <xs:element name="removeUserFromChat" type="tns:removeUserFromChat" />
+      <xs:element name="removeUserFromChatResponse" type="tns:removeUserFromChatResponse" />
+      <xs:element name="resetCampaign" type="tns:resetCampaign" />
+      <xs:element name="resetCampaignDispositions" type="tns:resetCampaignDispositions" />
+      <xs:element name="resetCampaignDispositionsResponse" type="tns:resetCampaignDispositionsResponse" />
+      <xs:element name="resetCampaignResponse" type="tns:resetCampaignResponse" />
+      <xs:element name="sendBroadcastMessages" type="tns:sendBroadcastMessages" />
+      <xs:element name="sendBroadcastMessagesResponse" type="tns:sendBroadcastMessagesResponse" />
+      <xs:element name="sendChatInvite" type="tns:sendChatInvite" />
+      <xs:element name="sendChatInviteResponse" type="tns:sendChatInviteResponse" />
+      <xs:element name="sendInfoMessage" type="tns:sendInfoMessage" />
+      <xs:element name="sendInfoMessageResponse" type="tns:sendInfoMessageResponse" />
+      <xs:element name="sendMsgToChat" type="tns:sendMsgToChat" />
+      <xs:element name="sendMsgToChatResponse" type="tns:sendMsgToChatResponse" />
+      <xs:element name="setSessionParameters" type="tns:setSessionParameters" />
+      <xs:element name="setSessionParametersResponse" type="tns:setSessionParametersResponse" />
+      <xs:element name="startCampaign" type="tns:startCampaign" />
+      <xs:element name="startCampaignResponse" type="tns:startCampaignResponse" />
+      <xs:element name="startMonitoring" type="tns:startMonitoring" />
+      <xs:element name="startMonitoringResponse" type="tns:startMonitoringResponse" />
+      <xs:element name="stopCampaign" type="tns:stopCampaign" />
+      <xs:element name="stopCampaignResponse" type="tns:stopCampaignResponse" />
+      <xs:element name="stopMonitoring" type="tns:stopMonitoring" />
+      <xs:element name="stopMonitoringResponse" type="tns:stopMonitoringResponse" />
+      <xs:complexType name="startCampaign">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="startCampaignResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="InvalidAccountException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserAlreadyLoggedInException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceUnavailableException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SessionClosedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IncorrectArgumentException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CampaignNotFoundException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CampaignStateUpdateException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+          <xs:element minOccurs="0" name="details" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MissedArgumentException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConcurrentModificationException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OperationsLimitExceededException">
+        <xs:sequence>
+          <xs:element name="limit" type="xs:long" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="operationType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessDisallowedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServerException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stopCampaign">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stopCampaignResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="forceStopCampaign">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="forceStopCampaignResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="resetCampaign">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetCampaignResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="WrongCampaignTypeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="actualType" type="tns:campaignType" />
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="desiredTypes" type="tns:campaignType" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetCampaignDispositions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="dispositions" type="xs:string" />
+          <xs:element minOccurs="0" name="after" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="before" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetCampaignDispositionsResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="WrongCampaignStateException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="actualState" type="tns:campaignState" />
+          <xs:element minOccurs="0" name="campaignName" type="xs:string" />
+          <xs:element minOccurs="0" name="desiredState" type="tns:campaignState" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DispositionNotFoundException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dispositionName" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCallCountersState">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getCallCountersStateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:limitTimeoutState" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="limitTimeoutState">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="callCounterStates" nillable="true" type="tns:callCounterState" />
+          <xs:element name="timeout" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="callCounterState">
+        <xs:sequence>
+          <xs:element name="limit" type="xs:long" />
+          <xs:element minOccurs="0" name="operationType" type="tns:apiOperationType" />
+          <xs:element name="value" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="closeSession">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="closeSessionResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getStatistics">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="statisticType" type="tns:statisticType" />
+          <xs:element minOccurs="0" name="columnNames" type="tns:row" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="row">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="values">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="data" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getStatisticsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:statistics" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="statistics">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="columns" type="tns:row" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="rows" nillable="true" type="tns:row" />
+          <xs:element name="timestamp" type="xs:long" />
+          <xs:element minOccurs="0" name="type" type="tns:statisticType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UnknownColumnException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SessionNotInitializedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserLimitReachedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSessionParameters">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getSessionParametersResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:viewSettings" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="viewSettings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appType" type="xs:string" />
+          <xs:element minOccurs="0" name="forceLogoutSession" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idleTimeOut" type="xs:int" />
+          <xs:element minOccurs="0" name="rollingPeriod" type="tns:rollingPeriod" />
+          <xs:element name="shiftStart" type="xs:int" />
+          <xs:element minOccurs="0" name="statisticsRange" type="tns:statisticsRange" />
+          <xs:element name="timeZone" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setSessionParameters">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="viewSettings" type="tns:viewSettings" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setSessionParametersResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getStatisticsUpdate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="statisticType" type="tns:statisticType" />
+          <xs:element name="previousTimestamp" type="xs:long" />
+          <xs:element name="longPollingTimeout" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getStatisticsUpdateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:statisticsUpdate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="statisticsUpdate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addedObjects" type="tns:row" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="dataUpdate" type="tns:itemUpdate" />
+          <xs:element minOccurs="0" name="deletedObjects" type="tns:row" />
+          <xs:element name="lastTimestamp" type="xs:long" />
+          <xs:element name="previousTimestamp" type="xs:long" />
+          <xs:element minOccurs="0" name="type" type="tns:statisticType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="itemUpdate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="columnName" type="xs:string" />
+          <xs:element minOccurs="0" name="columnValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="objectName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UnknownTimestampException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StatisticsNotRequestedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigurationChangedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getColumnNames">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="statisticType" type="tns:statisticType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getColumnNamesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:row" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginStation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="stationName" type="xs:string" />
+          <xs:element name="forceLogoutSession" type="xs:boolean" />
+          <xs:element minOccurs="0" name="appType" type="xs:string" />
+          <xs:element minOccurs="0" name="idleTimeOut" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginStationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:stationParameters" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stationParameters">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="backupProxy" type="xs:string" />
+          <xs:element minOccurs="0" name="codecParameters" type="tns:codecParameters" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="proxy" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="codecParameters">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="codecs" type="tns:codec" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cryptoSuites" type="tns:cryptoSuite" />
+          <xs:element name="disableNAT" type="xs:boolean" />
+          <xs:element name="noSilenceSuppression" type="xs:boolean" />
+          <xs:element name="ptime" type="xs:int" />
+          <xs:element name="rfc2833pType" type="xs:int" />
+          <xs:element name="useSRTP" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StationNotFoundException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="stationName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reconnectStation">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="reconnectStationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:connectStationResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StationNotLoggedInException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ReconnectStationException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="problem" type="tns:connectStationProblem" />
+          <xs:element minOccurs="0" name="stationName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="startMonitoring">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+          <xs:element minOccurs="0" name="monitoringMode" type="tns:monitoringMode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="startMonitoringResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="AgentMonitorException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="monitorError" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AgentNotFoundException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stopMonitoring">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stopMonitoringResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getMonitoringSupervisors">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agentName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMonitoringSupervisorsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:monitoringSupervisor" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="monitoringSupervisor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mode" type="tns:monitoringMode" />
+          <xs:element minOccurs="0" name="supervisorName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createChatSession">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="createChatSessionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSChatException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="closeChatSession">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="closeChatSessionResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="sendChatInvite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+          <xs:element minOccurs="0" name="user" type="tns:wsRoledId" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsRoledId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="role" type="tns:userRole" />
+          <xs:element name="userId" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendChatInviteResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="removeUserFromChat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+          <xs:element minOccurs="0" name="user" type="tns:wsRoledId" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removeUserFromChatResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="sendMsgToChat">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendMsgToChatResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="receiveMessages">
+        <xs:sequence>
+          <xs:element name="previousTimestamp" type="xs:long" />
+          <xs:element name="longPollingTimeout" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="receiveMessagesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:wsChatMessages" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsChatMessages">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:wsChatMessage" />
+          <xs:element name="timestamp" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsChatMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+          <xs:element minOccurs="0" name="from" type="tns:wsRoledId" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="participants" nillable="true" type="tns:wsRoledId" />
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+          <xs:element minOccurs="0" name="timestamp" type="xs:long" />
+          <xs:element minOccurs="0" name="type" type="tns:wsChatMessageType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="acceptChatInvite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chatId" type="xs:string" />
+          <xs:element name="accepted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="acceptChatInviteResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getLoggedInUsers">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getLoggedInUsersResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:wsUserRoledId" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsUserRoledId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="roledId" type="tns:wsRoledId" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMySkillsIds">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getMySkillsIdsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:wsSkill" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsSkill">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMyGroupIds">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getMyGroupIdsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:wsAgentGroup" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsAgentGroup">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendBroadcastMessages">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="tns:broadcastType" />
+          <xs:element name="specId" type="xs:long" />
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendBroadcastMessagesResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="sendInfoMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:wsRoledId" />
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendInfoMessageResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getUserLimits">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getUserLimitsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:wsUserLimits" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsUserLimits">
+        <xs:sequence>
+          <xs:element name="mobileLimit" type="xs:int" />
+          <xs:element name="mobileLoggedin" type="xs:int" />
+          <xs:element name="supervisorLimit" type="xs:int" />
+          <xs:element name="supervisorsLoggedin" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMyPermissions">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getMyPermissionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:supervisorPermission" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supervisorPermission">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="tns:supervisorPermissionType" />
+          <xs:element name="value" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDispositionsNames">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getDispositionsNamesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="campaignType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OUTBOUND" />
+          <xs:enumeration value="AUTODIAL" />
+          <xs:enumeration value="INBOUND" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="campaignState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NOT_RUNNING" />
+          <xs:enumeration value="STARTING" />
+          <xs:enumeration value="RUNNING" />
+          <xs:enumeration value="STOPPING" />
+          <xs:enumeration value="RESETTING" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="apiOperationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Query" />
+          <xs:enumeration value="Modify" />
+          <xs:enumeration value="Upload" />
+          <xs:enumeration value="SingleUpload" />
+          <xs:enumeration value="ReportRequest" />
+          <xs:enumeration value="RetrieveReport" />
+          <xs:enumeration value="AsynchronousUpload" />
+          <xs:enumeration value="QueryStatistics" />
+          <xs:enumeration value="QueryChangedStatistics" />
+          <xs:enumeration value="Web2CampaignUpload" />
+          <xs:enumeration value="VIVRCreateSession" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="statisticType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AgentState" />
+          <xs:enumeration value="AgentStatistics" />
+          <xs:enumeration value="ACDStatus" />
+          <xs:enumeration value="CampaignState" />
+          <xs:enumeration value="OutboundCampaignManager" />
+          <xs:enumeration value="OutboundCampaignStatistics" />
+          <xs:enumeration value="InboundCampaignStatistics" />
+          <xs:enumeration value="AutodialCampaignStatistics" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="rollingPeriod">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Minutes5" />
+          <xs:enumeration value="Minutes10" />
+          <xs:enumeration value="Minutes15" />
+          <xs:enumeration value="Minutes30" />
+          <xs:enumeration value="Hour1" />
+          <xs:enumeration value="Hours2" />
+          <xs:enumeration value="Hours3" />
+          <xs:enumeration value="Today" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="statisticsRange">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RollingHour" />
+          <xs:enumeration value="CurrentDay" />
+          <xs:enumeration value="CurrentWeek" />
+          <xs:enumeration value="CurrentMonth" />
+          <xs:enumeration value="Lifetime" />
+          <xs:enumeration value="CurrentShift" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="codec">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="G711U" />
+          <xs:enumeration value="G711A" />
+          <xs:enumeration value="G729" />
+          <xs:enumeration value="G723" />
+          <xs:enumeration value="GSM" />
+          <xs:enumeration value="G726" />
+          <xs:enumeration value="ILBC" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="cryptoSuite">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AES_CM_128_HMAC_SHA1_80" />
+          <xs:enumeration value="AES_CM_128_HMAC_SHA1_32" />
+          <xs:enumeration value="F8_128_HMAC_SHA1_80" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="connectStationResult">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CONNECT" />
+          <xs:enumeration value="CONNECT_VOICE" />
+          <xs:enumeration value="CONNECT_ANSWR_MACHN" />
+          <xs:enumeration value="CONNECT_DIGITAL_PHONE" />
+          <xs:enumeration value="CONNECT_FAX" />
+          <xs:enumeration value="CONNECT_RINGBACK" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="connectStationProblem">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HARDWARE_TIMEOUT" />
+          <xs:enumeration value="OPERATOR_INTERCEPT" />
+          <xs:enumeration value="DIAL_ERROR" />
+          <xs:enumeration value="RESOURCE_UNAVAILABLE" />
+          <xs:enumeration value="BUSY" />
+          <xs:enumeration value="NO_ANSWER" />
+          <xs:enumeration value="NO_DIALTONE" />
+          <xs:enumeration value="HANGUP" />
+          <xs:enumeration value="UNKNOWN_ERROR" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="monitoringMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Silence" />
+          <xs:enumeration value="BargeIn" />
+          <xs:enumeration value="Whispering" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="userRole">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Agent" />
+          <xs:enumeration value="DomainSupervisor" />
+          <xs:enumeration value="DomainAdmin" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="wsChatMessageType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BROADCAST" />
+          <xs:enumeration value="INFO" />
+          <xs:enumeration value="REQUEST" />
+          <xs:enumeration value="INVITE" />
+          <xs:enumeration value="INVITE_CANCELLED" />
+          <xs:enumeration value="ACK" />
+          <xs:enumeration value="NACK" />
+          <xs:enumeration value="TIMEOUT" />
+          <xs:enumeration value="KICK" />
+          <xs:enumeration value="BROADCAST_TO_SKILL" />
+          <xs:enumeration value="BROADCAST_TO_AGENT_GROUP" />
+          <xs:enumeration value="CHAT" />
+          <xs:enumeration value="ARRIVED" />
+          <xs:enumeration value="LEAVE" />
+          <xs:enumeration value="END" />
+          <xs:enumeration value="KILLED" />
+          <xs:enumeration value="PARTICIPANT_REQ" />
+          <xs:enumeration value="PARTICIPANT_RESP" />
+          <xs:enumeration value="HELP_REQUEST" />
+          <xs:enumeration value="UNKNOWN" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="broadcastType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ALL" />
+          <xs:enumeration value="MY_SKILLS" />
+          <xs:enumeration value="SPEC_SKILL" />
+          <xs:enumeration value="MY_AGENT_GROUPS" />
+          <xs:enumeration value="SPEC_AGENT_GROUP" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="supervisorPermissionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Users" />
+          <xs:enumeration value="Agents" />
+          <xs:enumeration value="CallMonitoring" />
+          <xs:enumeration value="Stations" />
+          <xs:enumeration value="ChatSessions" />
+          <xs:enumeration value="Campaigns" />
+          <xs:enumeration value="CampaignManagement" />
+          <xs:enumeration value="AllSkills" />
+          <xs:enumeration value="BillingInfo" />
+          <xs:enumeration value="BargeInMonitor" />
+          <xs:enumeration value="WhisperMonitor" />
+          <xs:enumeration value="ViewDataForAllAgentGroups" />
+          <xs:enumeration value="ReviewVoiceRecordings" />
+          <xs:enumeration value="EditAgentSkills" />
+          <xs:enumeration value="NICEEnabled" />
+          <xs:enumeration value="CanAccessDashboardMenu" />
+          <xs:enumeration value="CampaignManagementStart" />
+          <xs:enumeration value="CampaignManagementStop" />
+          <xs:enumeration value="CampaignManagementReset" />
+          <xs:enumeration value="CampaignManagementResetDispositions" />
+          <xs:enumeration value="CampaignManagementResetListPositions" />
+          <xs:enumeration value="CampaignManagementResetAbandonCallRate" />
+          <xs:enumeration value="CanViewTextDetailsTab" />
+          <xs:enumeration value="CanAccessShowFields" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </types>
+  <message name="WsSupervisor_loginStationResponse">
+    <part name="loginStationResponse" element="tns:loginStationResponse" />
+  </message>
+  <message name="WsSupervisor_resetCampaignResponse">
+    <part name="resetCampaignResponse" element="tns:resetCampaignResponse" />
+  </message>
+  <message name="WsSupervisor_getStatistics">
+    <part name="getStatistics" element="tns:getStatistics" />
+  </message>
+  <message name="WsSupervisor_sendInfoMessageResponse">
+    <part name="sendInfoMessageResponse" element="tns:sendInfoMessageResponse" />
+  </message>
+  <message name="AgentMonitorFault">
+    <part name="AgentMonitorFault" element="tns:AgentMonitorFault" />
+  </message>
+  <message name="ReconnectStationFault">
+    <part name="ReconnectStationFault" element="tns:ReconnectStationFault" />
+  </message>
+  <message name="WsSupervisor_getMyGroupIds">
+    <part name="getMyGroupIds" element="tns:getMyGroupIds" />
+  </message>
+  <message name="WsSupervisor_getMySkillsIdsResponse">
+    <part name="getMySkillsIdsResponse" element="tns:getMySkillsIdsResponse" />
+  </message>
+  <message name="InvalidAccountFault">
+    <part name="InvalidAccountFault" element="tns:InvalidAccountFault" />
+  </message>
+  <message name="WsSupervisor_getMyPermissions">
+    <part name="getMyPermissions" element="tns:getMyPermissions" />
+  </message>
+  <message name="WsSupervisor_resetCampaignDispositionsResponse">
+    <part name="resetCampaignDispositionsResponse" element="tns:resetCampaignDispositionsResponse" />
+  </message>
+  <message name="WrongCampaignTypeFault">
+    <part name="WrongCampaignTypeFault" element="tns:WrongCampaignTypeFault" />
+  </message>
+  <message name="WsSupervisor_getUserLimitsResponse">
+    <part name="getUserLimitsResponse" element="tns:getUserLimitsResponse" />
+  </message>
+  <message name="WsSupervisor_sendMsgToChatResponse">
+    <part name="sendMsgToChatResponse" element="tns:sendMsgToChatResponse" />
+  </message>
+  <message name="WsSupervisor_createChatSessionResponse">
+    <part name="createChatSessionResponse" element="tns:createChatSessionResponse" />
+  </message>
+  <message name="SessionClosedFault">
+    <part name="SessionClosedFault" element="tns:SessionClosedFault" />
+  </message>
+  <message name="WsSupervisor_startMonitoring">
+    <part name="startMonitoring" element="tns:startMonitoring" />
+  </message>
+  <message name="WsSupervisor_getStatisticsUpdate">
+    <part name="getStatisticsUpdate" element="tns:getStatisticsUpdate" />
+  </message>
+  <message name="UserAlreadyLoggedInFault">
+    <part name="UserAlreadyLoggedInFault" element="tns:UserAlreadyLoggedInFault" />
+  </message>
+  <message name="WsSupervisor_setSessionParameters">
+    <part name="setSessionParameters" element="tns:setSessionParameters" />
+  </message>
+  <message name="WsSupervisor_getMySkillsIds">
+    <part name="getMySkillsIds" element="tns:getMySkillsIds" />
+  </message>
+  <message name="WsSupervisor_getColumnNames">
+    <part name="getColumnNames" element="tns:getColumnNames" />
+  </message>
+  <message name="SessionNotInitializedFault">
+    <part name="SessionNotInitializedFault" element="tns:SessionNotInitializedFault" />
+  </message>
+  <message name="WsSupervisor_startCampaignResponse">
+    <part name="startCampaignResponse" element="tns:startCampaignResponse" />
+  </message>
+  <message name="UserLimitReachedFault">
+    <part name="UserLimitReachedFault" element="tns:UserLimitReachedFault" />
+  </message>
+  <message name="WsSupervisor_getStatisticsResponse">
+    <part name="getStatisticsResponse" element="tns:getStatisticsResponse" />
+  </message>
+  <message name="WsSupervisor_getSessionParameters">
+    <part name="getSessionParameters" element="tns:getSessionParameters" />
+  </message>
+  <message name="WsSupervisor_closeChatSession">
+    <part name="closeChatSession" element="tns:closeChatSession" />
+  </message>
+  <message name="WsSupervisor_reconnectStation">
+    <part name="reconnectStation" element="tns:reconnectStation" />
+  </message>
+  <message name="StationNotFoundFault">
+    <part name="StationNotFoundFault" element="tns:StationNotFoundFault" />
+  </message>
+  <message name="StationNotLoggedInFault">
+    <part name="StationNotLoggedInFault" element="tns:StationNotLoggedInFault" />
+  </message>
+  <message name="WsSupervisor_startMonitoringResponse">
+    <part name="startMonitoringResponse" element="tns:startMonitoringResponse" />
+  </message>
+  <message name="WsSupervisor_createChatSession">
+    <part name="createChatSession" element="tns:createChatSession" />
+  </message>
+  <message name="ChatFault">
+    <part name="ChatFault" element="tns:ChatFault" />
+  </message>
+  <message name="CampaignStateUpdateFault">
+    <part name="CampaignStateUpdateFault" element="tns:CampaignStateUpdateFault" />
+  </message>
+  <message name="WsSupervisor_getMyPermissionsResponse">
+    <part name="getMyPermissionsResponse" element="tns:getMyPermissionsResponse" />
+  </message>
+  <message name="WsSupervisor_stopMonitoringResponse">
+    <part name="stopMonitoringResponse" element="tns:stopMonitoringResponse" />
+  </message>
+  <message name="WsSupervisor_getMyGroupIdsResponse">
+    <part name="getMyGroupIdsResponse" element="tns:getMyGroupIdsResponse" />
+  </message>
+  <message name="WsSupervisor_forceStopCampaignResponse">
+    <part name="forceStopCampaignResponse" element="tns:forceStopCampaignResponse" />
+  </message>
+  <message name="StatisticsNotRequestedFault">
+    <part name="StatisticsNotRequestedFault" element="tns:StatisticsNotRequestedFault" />
+  </message>
+  <message name="CampaignNotFoundFault">
+    <part name="CampaignNotFoundFault" element="tns:CampaignNotFoundFault" />
+  </message>
+  <message name="WsSupervisor_resetCampaignDispositions">
+    <part name="resetCampaignDispositions" element="tns:resetCampaignDispositions" />
+  </message>
+  <message name="ConcurrentModificationFault">
+    <part name="ConcurrentModificationFault" element="tns:ConcurrentModificationFault" />
+  </message>
+  <message name="WsSupervisor_sendBroadcastMessages">
+    <part name="sendBroadcastMessages" element="tns:sendBroadcastMessages" />
+  </message>
+  <message name="WsSupervisor_getCallCountersStateResponse">
+    <part name="getCallCountersStateResponse" element="tns:getCallCountersStateResponse" />
+  </message>
+  <message name="WsSupervisor_sendBroadcastMessagesResponse">
+    <part name="sendBroadcastMessagesResponse" element="tns:sendBroadcastMessagesResponse" />
+  </message>
+  <message name="WrongCampaignStateFault">
+    <part name="WrongCampaignStateFault" element="tns:WrongCampaignStateFault" />
+  </message>
+  <message name="WsSupervisor_removeUserFromChat">
+    <part name="removeUserFromChat" element="tns:removeUserFromChat" />
+  </message>
+  <message name="WsSupervisor_sendChatInvite">
+    <part name="sendChatInvite" element="tns:sendChatInvite" />
+  </message>
+  <message name="WsSupervisor_sendInfoMessage">
+    <part name="sendInfoMessage" element="tns:sendInfoMessage" />
+  </message>
+  <message name="WsSupervisor_resetCampaign">
+    <part name="resetCampaign" element="tns:resetCampaign" />
+  </message>
+  <message name="WsSupervisor_removeUserFromChatResponse">
+    <part name="removeUserFromChatResponse" element="tns:removeUserFromChatResponse" />
+  </message>
+  <message name="OperationsLimitExceededFault">
+    <part name="OperationsLimitExceededFault" element="tns:OperationsLimitExceededFault" />
+  </message>
+  <message name="WsSupervisor_sendMsgToChat">
+    <part name="sendMsgToChat" element="tns:sendMsgToChat" />
+  </message>
+  <message name="MissedArgumentFault">
+    <part name="MissedArgumentFault" element="tns:MissedArgumentFault" />
+  </message>
+  <message name="WsSupervisor_closeSession">
+    <part name="closeSession" element="tns:closeSession" />
+  </message>
+  <message name="WsSupervisor_closeChatSessionResponse">
+    <part name="closeChatSessionResponse" element="tns:closeChatSessionResponse" />
+  </message>
+  <message name="ServerFault">
+    <part name="ServerFault" element="tns:ServerFault" />
+  </message>
+  <message name="UnknownTimestampFault">
+    <part name="UnknownTimestampFault" element="tns:UnknownTimestampFault" />
+  </message>
+  <message name="WsSupervisor_receiveMessagesResponse">
+    <part name="receiveMessagesResponse" element="tns:receiveMessagesResponse" />
+  </message>
+  <message name="WsSupervisor_getStatisticsUpdateResponse">
+    <part name="getStatisticsUpdateResponse" element="tns:getStatisticsUpdateResponse" />
+  </message>
+  <message name="WsSupervisor_acceptChatInvite">
+    <part name="acceptChatInvite" element="tns:acceptChatInvite" />
+  </message>
+  <message name="AgentNotFoundFault">
+    <part name="AgentNotFoundFault" element="tns:AgentNotFoundFault" />
+  </message>
+  <message name="WsSupervisor_receiveMessages">
+    <part name="receiveMessages" element="tns:receiveMessages" />
+  </message>
+  <message name="AccessDisallowedFault">
+    <part name="AccessDisallowedFault" element="tns:AccessDisallowedFault" />
+  </message>
+  <message name="WsSupervisor_stopMonitoring">
+    <part name="stopMonitoring" element="tns:stopMonitoring" />
+  </message>
+  <message name="ConfigurationChangedFault">
+    <part name="ConfigurationChangedFault" element="tns:ConfigurationChangedFault" />
+  </message>
+  <message name="WsSupervisor_getColumnNamesResponse">
+    <part name="getColumnNamesResponse" element="tns:getColumnNamesResponse" />
+  </message>
+  <message name="WsSupervisor_loginStation">
+    <part name="loginStation" element="tns:loginStation" />
+  </message>
+  <message name="WsSupervisor_stopCampaign">
+    <part name="stopCampaign" element="tns:stopCampaign" />
+  </message>
+  <message name="DispositionNotFoundFault">
+    <part name="DispositionNotFoundFault" element="tns:DispositionNotFoundFault" />
+  </message>
+  <message name="WsSupervisor_acceptChatInviteResponse">
+    <part name="acceptChatInviteResponse" element="tns:acceptChatInviteResponse" />
+  </message>
+  <message name="WsSupervisor_getUserLimits">
+    <part name="getUserLimits" element="tns:getUserLimits" />
+  </message>
+  <message name="WsSupervisor_getLoggedInUsers">
+    <part name="getLoggedInUsers" element="tns:getLoggedInUsers" />
+  </message>
+  <message name="IncorrectArgumentFault">
+    <part name="IncorrectArgumentFault" element="tns:IncorrectArgumentFault" />
+  </message>
+  <message name="WsSupervisor_getDispositionsNamesResponse">
+    <part name="getDispositionsNamesResponse" element="tns:getDispositionsNamesResponse" />
+  </message>
+  <message name="WsSupervisor_setSessionParametersResponse">
+    <part name="setSessionParametersResponse" element="tns:setSessionParametersResponse" />
+  </message>
+  <message name="WsSupervisor_getMonitoringSupervisors">
+    <part name="getMonitoringSupervisors" element="tns:getMonitoringSupervisors" />
+  </message>
+  <message name="WsSupervisor_getMonitoringSupervisorsResponse">
+    <part name="getMonitoringSupervisorsResponse" element="tns:getMonitoringSupervisorsResponse" />
+  </message>
+  <message name="WsSupervisor_reconnectStationResponse">
+    <part name="reconnectStationResponse" element="tns:reconnectStationResponse" />
+  </message>
+  <message name="WsSupervisor_getSessionParametersResponse">
+    <part name="getSessionParametersResponse" element="tns:getSessionParametersResponse" />
+  </message>
+  <message name="WsSupervisor_sendChatInviteResponse">
+    <part name="sendChatInviteResponse" element="tns:sendChatInviteResponse" />
+  </message>
+  <message name="WsSupervisor_stopCampaignResponse">
+    <part name="stopCampaignResponse" element="tns:stopCampaignResponse" />
+  </message>
+  <message name="WsSupervisor_startCampaign">
+    <part name="startCampaign" element="tns:startCampaign" />
+  </message>
+  <message name="WsSupervisor_getDispositionsNames">
+    <part name="getDispositionsNames" element="tns:getDispositionsNames" />
+  </message>
+  <message name="WsSupervisor_closeSessionResponse">
+    <part name="closeSessionResponse" element="tns:closeSessionResponse" />
+  </message>
+  <message name="WsSupervisor_getCallCountersState">
+    <part name="getCallCountersState" element="tns:getCallCountersState" />
+  </message>
+  <message name="WsSupervisor_forceStopCampaign">
+    <part name="forceStopCampaign" element="tns:forceStopCampaign" />
+  </message>
+  <message name="ServiceUnavailableFault">
+    <part name="ServiceUnavailableFault" element="tns:ServiceUnavailableFault" />
+  </message>
+  <message name="UnknownColumnFault">
+    <part name="UnknownColumnFault" element="tns:UnknownColumnFault" />
+  </message>
+  <message name="WsSupervisor_getLoggedInUsersResponse">
+    <part name="getLoggedInUsersResponse" element="tns:getLoggedInUsersResponse" />
+  </message>
+  <portType name="WsSupervisor">
+    <documentation>Web service to automate VCC Supervisor actions.Version [9.2.00/4]</documentation>
+    <jaxws:bindings>
+      <jaxws:class name="WsSupervisor">
+        <jaxws:javadoc>Web service to automate VCC Supervisor actions.Version [9.2.00/4]</jaxws:javadoc>
+      </jaxws:class>
+    </jaxws:bindings>
+    <operation name="acceptChatInvite" parameterOrder="acceptChatInvite">
+      <input message="tns:WsSupervisor_acceptChatInvite" />
+      <output message="tns:WsSupervisor_acceptChatInviteResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="closeChatSession" parameterOrder="closeChatSession">
+      <input message="tns:WsSupervisor_closeChatSession" />
+      <output message="tns:WsSupervisor_closeChatSessionResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="closeSession" parameterOrder="closeSession">
+      <input message="tns:WsSupervisor_closeSession" />
+      <output message="tns:WsSupervisor_closeSessionResponse" />
+    </operation>
+    <operation name="createChatSession" parameterOrder="createChatSession">
+      <input message="tns:WsSupervisor_createChatSession" />
+      <output message="tns:WsSupervisor_createChatSessionResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="forceStopCampaign" parameterOrder="forceStopCampaign">
+      <input message="tns:WsSupervisor_forceStopCampaign" />
+      <output message="tns:WsSupervisor_forceStopCampaignResponse" />
+      <fault name="CampaignStateUpdateFault" message="tns:CampaignStateUpdateFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="ConcurrentModificationFault" message="tns:ConcurrentModificationFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="CampaignNotFoundFault" message="tns:CampaignNotFoundFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+    </operation>
+    <operation name="getCallCountersState" parameterOrder="getCallCountersState">
+      <input message="tns:WsSupervisor_getCallCountersState" />
+      <output message="tns:WsSupervisor_getCallCountersStateResponse" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+    </operation>
+    <operation name="getColumnNames" parameterOrder="getColumnNames">
+      <input message="tns:WsSupervisor_getColumnNames" />
+      <output message="tns:WsSupervisor_getColumnNamesResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getDispositionsNames" parameterOrder="getDispositionsNames">
+      <input message="tns:WsSupervisor_getDispositionsNames" />
+      <output message="tns:WsSupervisor_getDispositionsNamesResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getLoggedInUsers" parameterOrder="getLoggedInUsers">
+      <input message="tns:WsSupervisor_getLoggedInUsers" />
+      <output message="tns:WsSupervisor_getLoggedInUsersResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getMonitoringSupervisors" parameterOrder="getMonitoringSupervisors">
+      <input message="tns:WsSupervisor_getMonitoringSupervisors" />
+      <output message="tns:WsSupervisor_getMonitoringSupervisorsResponse" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="StationNotLoggedInFault" message="tns:StationNotLoggedInFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="AgentNotFoundFault" message="tns:AgentNotFoundFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getMyGroupIds" parameterOrder="getMyGroupIds">
+      <input message="tns:WsSupervisor_getMyGroupIds" />
+      <output message="tns:WsSupervisor_getMyGroupIdsResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getMyPermissions" parameterOrder="getMyPermissions">
+      <input message="tns:WsSupervisor_getMyPermissions" />
+      <output message="tns:WsSupervisor_getMyPermissionsResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+    </operation>
+    <operation name="getMySkillsIds" parameterOrder="getMySkillsIds">
+      <input message="tns:WsSupervisor_getMySkillsIds" />
+      <output message="tns:WsSupervisor_getMySkillsIdsResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getSessionParameters" parameterOrder="getSessionParameters">
+      <input message="tns:WsSupervisor_getSessionParameters" />
+      <output message="tns:WsSupervisor_getSessionParametersResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getStatistics" parameterOrder="getStatistics">
+      <input message="tns:WsSupervisor_getStatistics" />
+      <output message="tns:WsSupervisor_getStatisticsResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="UnknownColumnFault" message="tns:UnknownColumnFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getStatisticsUpdate" parameterOrder="getStatisticsUpdate">
+      <input message="tns:WsSupervisor_getStatisticsUpdate" />
+      <output message="tns:WsSupervisor_getStatisticsUpdateResponse" />
+      <fault name="UnknownTimestampFault" message="tns:UnknownTimestampFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="StatisticsNotRequestedFault" message="tns:StatisticsNotRequestedFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="ConfigurationChangedFault" message="tns:ConfigurationChangedFault" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="getUserLimits" parameterOrder="getUserLimits">
+      <input message="tns:WsSupervisor_getUserLimits" />
+      <output message="tns:WsSupervisor_getUserLimitsResponse" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="loginStation" parameterOrder="loginStation">
+      <input message="tns:WsSupervisor_loginStation" />
+      <output message="tns:WsSupervisor_loginStationResponse" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="StationNotFoundFault" message="tns:StationNotFoundFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="receiveMessages" parameterOrder="receiveMessages">
+      <input message="tns:WsSupervisor_receiveMessages" />
+      <output message="tns:WsSupervisor_receiveMessagesResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="reconnectStation" parameterOrder="reconnectStation">
+      <input message="tns:WsSupervisor_reconnectStation" />
+      <output message="tns:WsSupervisor_reconnectStationResponse" />
+      <fault name="ReconnectStationFault" message="tns:ReconnectStationFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="StationNotLoggedInFault" message="tns:StationNotLoggedInFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="removeUserFromChat" parameterOrder="removeUserFromChat">
+      <input message="tns:WsSupervisor_removeUserFromChat" />
+      <output message="tns:WsSupervisor_removeUserFromChatResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="resetCampaign" parameterOrder="resetCampaign">
+      <input message="tns:WsSupervisor_resetCampaign" />
+      <output message="tns:WsSupervisor_resetCampaignResponse" />
+      <fault name="CampaignStateUpdateFault" message="tns:CampaignStateUpdateFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="CampaignNotFoundFault" message="tns:CampaignNotFoundFault" />
+      <fault name="WrongCampaignTypeFault" message="tns:WrongCampaignTypeFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="ConcurrentModificationFault" message="tns:ConcurrentModificationFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+    </operation>
+    <operation name="resetCampaignDispositions" parameterOrder="resetCampaignDispositions">
+      <input message="tns:WsSupervisor_resetCampaignDispositions" />
+      <output message="tns:WsSupervisor_resetCampaignDispositionsResponse" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="CampaignNotFoundFault" message="tns:CampaignNotFoundFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="ConcurrentModificationFault" message="tns:ConcurrentModificationFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="DispositionNotFoundFault" message="tns:DispositionNotFoundFault" />
+      <fault name="WrongCampaignStateFault" message="tns:WrongCampaignStateFault" />
+    </operation>
+    <operation name="sendBroadcastMessages" parameterOrder="sendBroadcastMessages">
+      <input message="tns:WsSupervisor_sendBroadcastMessages" />
+      <output message="tns:WsSupervisor_sendBroadcastMessagesResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="sendChatInvite" parameterOrder="sendChatInvite">
+      <input message="tns:WsSupervisor_sendChatInvite" />
+      <output message="tns:WsSupervisor_sendChatInviteResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="sendInfoMessage" parameterOrder="sendInfoMessage">
+      <input message="tns:WsSupervisor_sendInfoMessage" />
+      <output message="tns:WsSupervisor_sendInfoMessageResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="sendMsgToChat" parameterOrder="sendMsgToChat">
+      <input message="tns:WsSupervisor_sendMsgToChat" />
+      <output message="tns:WsSupervisor_sendMsgToChatResponse" />
+      <fault name="SessionNotInitializedFault" message="tns:SessionNotInitializedFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="ChatFault" message="tns:ChatFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="setSessionParameters" parameterOrder="setSessionParameters">
+      <input message="tns:WsSupervisor_setSessionParameters" />
+      <output message="tns:WsSupervisor_setSessionParametersResponse" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="startCampaign" parameterOrder="startCampaign">
+      <input message="tns:WsSupervisor_startCampaign" />
+      <output message="tns:WsSupervisor_startCampaignResponse" />
+      <fault name="CampaignStateUpdateFault" message="tns:CampaignStateUpdateFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="ConcurrentModificationFault" message="tns:ConcurrentModificationFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="CampaignNotFoundFault" message="tns:CampaignNotFoundFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+    </operation>
+    <operation name="startMonitoring" parameterOrder="startMonitoring">
+      <input message="tns:WsSupervisor_startMonitoring" />
+      <output message="tns:WsSupervisor_startMonitoringResponse" />
+      <fault name="AgentMonitorFault" message="tns:AgentMonitorFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="AgentNotFoundFault" message="tns:AgentNotFoundFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="StationNotLoggedInFault" message="tns:StationNotLoggedInFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+    <operation name="stopCampaign" parameterOrder="stopCampaign">
+      <input message="tns:WsSupervisor_stopCampaign" />
+      <output message="tns:WsSupervisor_stopCampaignResponse" />
+      <fault name="CampaignStateUpdateFault" message="tns:CampaignStateUpdateFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="ConcurrentModificationFault" message="tns:ConcurrentModificationFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="CampaignNotFoundFault" message="tns:CampaignNotFoundFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+    </operation>
+    <operation name="stopMonitoring" parameterOrder="stopMonitoring">
+      <input message="tns:WsSupervisor_stopMonitoring" />
+      <output message="tns:WsSupervisor_stopMonitoringResponse" />
+      <fault name="AgentMonitorFault" message="tns:AgentMonitorFault" />
+      <fault name="ServerFault" message="tns:ServerFault" />
+      <fault name="MissedArgumentFault" message="tns:MissedArgumentFault" />
+      <fault name="IncorrectArgumentFault" message="tns:IncorrectArgumentFault" />
+      <fault name="SessionClosedFault" message="tns:SessionClosedFault" />
+      <fault name="InvalidAccountFault" message="tns:InvalidAccountFault" />
+      <fault name="AgentNotFoundFault" message="tns:AgentNotFoundFault" />
+      <fault name="UserAlreadyLoggedInFault" message="tns:UserAlreadyLoggedInFault" />
+      <fault name="AccessDisallowedFault" message="tns:AccessDisallowedFault" />
+      <fault name="OperationsLimitExceededFault" message="tns:OperationsLimitExceededFault" />
+      <fault name="StationNotLoggedInFault" message="tns:StationNotLoggedInFault" />
+      <fault name="ServiceUnavailableFault" message="tns:ServiceUnavailableFault" />
+      <fault name="UserLimitReachedFault" message="tns:UserLimitReachedFault" />
+    </operation>
+  </portType>
+  <binding name="WsSupervisorBinding" type="tns:WsSupervisor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="acceptChatInvite">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="closeChatSession">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="closeSession">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createChatSession">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="forceStopCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CampaignStateUpdateFault">
+        <soap:fault use="literal" name="CampaignStateUpdateFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="ConcurrentModificationFault">
+        <soap:fault use="literal" name="ConcurrentModificationFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="CampaignNotFoundFault">
+        <soap:fault use="literal" name="CampaignNotFoundFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCallCountersState">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getColumnNames">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getDispositionsNames">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoggedInUsers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMonitoringSupervisors">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="StationNotLoggedInFault">
+        <soap:fault use="literal" name="StationNotLoggedInFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="AgentNotFoundFault">
+        <soap:fault use="literal" name="AgentNotFoundFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMyGroupIds">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMyPermissions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMySkillsIds">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getSessionParameters">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getStatistics">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="UnknownColumnFault">
+        <soap:fault use="literal" name="UnknownColumnFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getStatisticsUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UnknownTimestampFault">
+        <soap:fault use="literal" name="UnknownTimestampFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="StatisticsNotRequestedFault">
+        <soap:fault use="literal" name="StatisticsNotRequestedFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="ConfigurationChangedFault">
+        <soap:fault use="literal" name="ConfigurationChangedFault" namespace="" />
+      </fault>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getUserLimits">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="loginStation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="StationNotFoundFault">
+        <soap:fault use="literal" name="StationNotFoundFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="receiveMessages">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reconnectStation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ReconnectStationFault">
+        <soap:fault use="literal" name="ReconnectStationFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="StationNotLoggedInFault">
+        <soap:fault use="literal" name="StationNotLoggedInFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="removeUserFromChat">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="resetCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CampaignStateUpdateFault">
+        <soap:fault use="literal" name="CampaignStateUpdateFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="CampaignNotFoundFault">
+        <soap:fault use="literal" name="CampaignNotFoundFault" namespace="" />
+      </fault>
+      <fault name="WrongCampaignTypeFault">
+        <soap:fault use="literal" name="WrongCampaignTypeFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="ConcurrentModificationFault">
+        <soap:fault use="literal" name="ConcurrentModificationFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="resetCampaignDispositions">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="CampaignNotFoundFault">
+        <soap:fault use="literal" name="CampaignNotFoundFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="ConcurrentModificationFault">
+        <soap:fault use="literal" name="ConcurrentModificationFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="DispositionNotFoundFault">
+        <soap:fault use="literal" name="DispositionNotFoundFault" namespace="" />
+      </fault>
+      <fault name="WrongCampaignStateFault">
+        <soap:fault use="literal" name="WrongCampaignStateFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendBroadcastMessages">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendChatInvite">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendInfoMessage">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendMsgToChat">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SessionNotInitializedFault">
+        <soap:fault use="literal" name="SessionNotInitializedFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="ChatFault">
+        <soap:fault use="literal" name="ChatFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="setSessionParameters">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="startCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CampaignStateUpdateFault">
+        <soap:fault use="literal" name="CampaignStateUpdateFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="ConcurrentModificationFault">
+        <soap:fault use="literal" name="ConcurrentModificationFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="CampaignNotFoundFault">
+        <soap:fault use="literal" name="CampaignNotFoundFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="startMonitoring">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="AgentMonitorFault">
+        <soap:fault use="literal" name="AgentMonitorFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="AgentNotFoundFault">
+        <soap:fault use="literal" name="AgentNotFoundFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="StationNotLoggedInFault">
+        <soap:fault use="literal" name="StationNotLoggedInFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="stopCampaign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CampaignStateUpdateFault">
+        <soap:fault use="literal" name="CampaignStateUpdateFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="ConcurrentModificationFault">
+        <soap:fault use="literal" name="ConcurrentModificationFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="CampaignNotFoundFault">
+        <soap:fault use="literal" name="CampaignNotFoundFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="stopMonitoring">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="AgentMonitorFault">
+        <soap:fault use="literal" name="AgentMonitorFault" namespace="" />
+      </fault>
+      <fault name="ServerFault">
+        <soap:fault use="literal" name="ServerFault" namespace="" />
+      </fault>
+      <fault name="MissedArgumentFault">
+        <soap:fault use="literal" name="MissedArgumentFault" namespace="" />
+      </fault>
+      <fault name="IncorrectArgumentFault">
+        <soap:fault use="literal" name="IncorrectArgumentFault" namespace="" />
+      </fault>
+      <fault name="SessionClosedFault">
+        <soap:fault use="literal" name="SessionClosedFault" namespace="" />
+      </fault>
+      <fault name="InvalidAccountFault">
+        <soap:fault use="literal" name="InvalidAccountFault" namespace="" />
+      </fault>
+      <fault name="AgentNotFoundFault">
+        <soap:fault use="literal" name="AgentNotFoundFault" namespace="" />
+      </fault>
+      <fault name="UserAlreadyLoggedInFault">
+        <soap:fault use="literal" name="UserAlreadyLoggedInFault" namespace="" />
+      </fault>
+      <fault name="AccessDisallowedFault">
+        <soap:fault use="literal" name="AccessDisallowedFault" namespace="" />
+      </fault>
+      <fault name="OperationsLimitExceededFault">
+        <soap:fault use="literal" name="OperationsLimitExceededFault" namespace="" />
+      </fault>
+      <fault name="StationNotLoggedInFault">
+        <soap:fault use="literal" name="StationNotLoggedInFault" namespace="" />
+      </fault>
+      <fault name="ServiceUnavailableFault">
+        <soap:fault use="literal" name="ServiceUnavailableFault" namespace="" />
+      </fault>
+      <fault name="UserLimitReachedFault">
+        <soap:fault use="literal" name="UserLimitReachedFault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="WsSupervisorService">
+    <port name="WsSupervisorPort" binding="tns:WsSupervisorBinding">
+      <soap:address location="https://api.five9.com/wssupervisor/v4/SupervisorWebService" />
+    </port>
+  </service>
+</definitions>

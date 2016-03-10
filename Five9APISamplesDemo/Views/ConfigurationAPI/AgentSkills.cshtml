@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Five9APISamplesDemo.Models.ViewModelFive9UsersSkills>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Users and Skill Assignments";
+}
+
+<h2>Users and Skill Assignments</h2>
+
+<div>
+    @Html.ActionLink("Download Skill Assignments", "GetCSVSkillList", "ConfigurationAPI", null, null)
+</div>
+@Html.Grid(Model).Columns(columns =>
+           {
+               columns.Add(d => d.fullName).Titled("Full Name").SetWidth(110).Sortable(true);
+               columns.Add(d => d.userName).Titled("Agent Name").SetWidth(110).Sortable(true);
+               columns.Add(d => d.isActive).Titled("Is Active").SetWidth(110).Sortable(true);
+               columns.Add(d => d.skillName).Titled("Skill Name").SetWidth(110).Sortable(true);
+               columns.Add(d => d.skillLevel).Titled("Skill Level").SetWidth(110).Sortable(true);
+              
+           }).WithPaging(100)
+
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ws-i.org/profiles/basic/1.1/swaref.xsd" filename="swaref.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://api.five9.com/wsadmin/v2/AdminWebService?wsdl&amp;user=proserv38" filename="WsAdminServiceV2.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

@@ -1,0 +1,58 @@
+﻿@model Five9APISamplesDemo.Models.Five9APIUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Five9APIUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminUsername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminPW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminPW)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperUsername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperPW)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperPW)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SessionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SessionID)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
